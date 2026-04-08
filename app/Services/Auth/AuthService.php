@@ -20,7 +20,7 @@ final class AuthService
     $_SESSION['user_id'] = (int)$user['id'];
     session_regenerate_id(true);
 
-    $pdo->prepare('UPDATE users SET last_login_at = UTC_TIMESTAMP() WHERE id = ?')->execute([(int)$user['id']]);
+    $pdo->prepare('UPDATE users SET last_login_at = NOW() WHERE id = ?')->execute([(int)$user['id']]);
     return true;
   }
 
