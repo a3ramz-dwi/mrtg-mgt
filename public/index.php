@@ -65,8 +65,20 @@ $router->post('/diagnostics/snmp-walk', [new \App\Http\Controllers\DiagnosticsCo
 
 $router->get('/event-timeline', [new \App\Http\Controllers\EventTimelineController(), 'index']);
 $router->get('/settings', [new \App\Http\Controllers\ComingSoonController(), 'settings']);
-$router->get('/users', [new \App\Http\Controllers\ComingSoonController(), 'users']);
-$router->get('/roles', [new \App\Http\Controllers\ComingSoonController(), 'roles']);
+
+$router->get('/users', [new \App\Http\Controllers\UsersController(), 'index']);
+$router->get('/users/create', [new \App\Http\Controllers\UsersController(), 'createForm']);
+$router->post('/users/create', [new \App\Http\Controllers\UsersController(), 'create']);
+$router->get('/users/edit', [new \App\Http\Controllers\UsersController(), 'editForm']);    // ?id=
+$router->post('/users/edit', [new \App\Http\Controllers\UsersController(), 'update']);     // ?id=
+$router->post('/users/delete', [new \App\Http\Controllers\UsersController(), 'delete']);   // ?id=
+
+$router->get('/roles', [new \App\Http\Controllers\RolesController(), 'index']);
+$router->get('/roles/create', [new \App\Http\Controllers\RolesController(), 'createForm']);
+$router->post('/roles/create', [new \App\Http\Controllers\RolesController(), 'create']);
+$router->get('/roles/edit', [new \App\Http\Controllers\RolesController(), 'editForm']);    // ?id=
+$router->post('/roles/edit', [new \App\Http\Controllers\RolesController(), 'update']);     // ?id=
+$router->post('/roles/delete', [new \App\Http\Controllers\RolesController(), 'delete']);   // ?id=
 
 $router->get('/alerts', [new \App\Http\Controllers\AlertsController(), 'index']);
 $router->post('/alerts/recheck', [new \App\Http\Controllers\AlertsController(), 'recheck']);           // ids[]

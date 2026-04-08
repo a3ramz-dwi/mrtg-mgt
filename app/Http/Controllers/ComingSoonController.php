@@ -15,6 +15,7 @@ final class ComingSoonController
 
   public function settings(): void
   {
+    AuthMiddleware::requireRole('admin');
     $this->render('Settings', 'Application settings will be managed here (env, paths, polling, retention).');
   }
 
