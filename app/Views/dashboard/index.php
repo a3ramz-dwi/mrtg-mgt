@@ -1,0 +1,29 @@
+<?php declare(strict_types=1); ?>
+<h3 class="mb-3">Dashboard</h3>
+
+<div class="row g-3">
+  <div class="col-md-3">
+    <div class="card"><div class="card-body">
+      <div class="text-muted small">Total Devices</div>
+      <div class="fs-4">0</div>
+    </div></div>
+  </div>
+  <div class="col-md-3">
+    <div class="card"><div class="card-body">
+      <div class="text-muted small">Online</div>
+      <div class="fs-4">0</div>
+    </div></div>
+  </div>
+  <div class="col-md-3">
+    <div class="card"><div class="card-body">
+      <div class="text-muted small">Offline</div>
+      <div class="fs-4">0</div>
+    </div></div>
+  </div>
+  <div class="col-md-3">
+    <div class="card"><div class="card-body">
+      <div class="text-muted small">AVG Latency</div>
+      <div class="fs-4">-</div>
+    </div></div>
+  </div>
+</div>
