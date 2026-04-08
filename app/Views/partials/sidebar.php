@@ -1,4 +1,7 @@
-<?php declare(strict_types=1); ?>
+<?php declare(strict_types=1);
+$_sidebarAuth = new \App\Services\Auth\AuthService();
+$_sidebarIsAdmin = $_sidebarAuth->userId() !== null && $_sidebarAuth->hasRole('admin');
+?>
 <div class="border-end bg-white" style="width: 280px; min-height: 100vh;">
   <div class="p-3 border-bottom">
     <div class="fw-bold"><?= htmlspecialchars($_ENV['APP_NAME'] ?? 'MRTG GUI') ?></div>
@@ -20,11 +23,15 @@
     <a class="btn btn-sm w-100 text-start" href="/alerts">Alerts</a>
     <a class="btn btn-sm w-100 text-start" href="/diagnostics">Diagnostics</a>
     <a class="btn btn-sm w-100 text-start" href="/history">History</a>
+    <?php if ($_sidebarIsAdmin): ?>
     <a class="btn btn-sm w-100 text-start" href="/settings">Settings</a>
+    <?php endif; ?>
 
+    <?php if ($_sidebarIsAdmin): ?>
     <div class="text-uppercase text-muted small px-2 mt-3 mb-1">Users</div>
     <a class="btn btn-sm w-100 text-start" href="/users">Users</a>
     <a class="btn btn-sm w-100 text-start" href="/roles">Roles</a>
+    <?php endif; ?>
 
     <hr>
     <form method="post" action="/logout" class="px-2">
